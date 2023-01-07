@@ -1,18 +1,48 @@
-<!DOCTYPE >
-<html>
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>DOM Intro</title>
+		<meta charset="UTF-8" />
+		<title>DOM Manipulation</title>
 	</head>
 	<body>
-		<h1>Dog</h1>
-		<div id="cat"></div>
-		<div class="mouse"></div>
-		<div class="mouse"></div>
-		<div class="mouse"></div>
-		<div class="hello"></div>
+		<p id="paragraph">What is your name?</p>
+		<a href="#" id="google-link" class="link">Google</a>
 
-		<!-- include js in the end of the body to make sure
-    the DOM is already loaded before you want to make updates in it-->
+		<div id="content">
+			<h1 id="title">Main title</h1>
+			<ul id="item-list">
+				<!-- index.html -->
+				<ul id="items-list">
+					<li>Item number 1</li>
+					<!-- Element created dynamically -->
+					<li>Item number 2</li>
+					<!-- Element created dynamically -->
+					<li>Item number 3</li>
+					<!-- Element created dynamically -->
+					<li>Item number 4</li>
+					<!-- Element created dynamically -->
+					<li>Item number 5</li>
+					<!-- Element created dynamically -->
+				</ul>
+				<button id="add-item-button">Add item</button>
+			</ul>
+		</div>
+
+		<button id="add-item-button">Add item</button>
+
+		<label for="username">Name</label>
+		<input id="input-field" name="username" type="text" />
+		<button id="send-btn">Send</button>
+
+		<ul class="list">
+			<li>Ana</li>
+			<li>Alex</li>
+			<li>Mat</li>
+		</ul>
+
+		<!-- make sure you load .js file in the end so it executes when the DOM is ready -->
 		<script src="index.js"></script>
 	</body>
 </html>
