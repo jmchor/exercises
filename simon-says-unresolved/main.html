@@ -16,11 +16,19 @@
 	</head>
 
 	<body>
-		<div onclick="playerClick(1)" id="square-one"></div>
-		<div onclick="playerClick(2)" id="square-two"></div>
-		<br />
-		<div onclick="playerClick(3)" id="square-three"></div>
-		<div onclick="playerClick(4)" id="square-four"></div>
+		<div class="input">
+			<form action="">
+				<input type="text" placeholder="How many rounds?" id="round-input" />
+				<input type="reset" />
+			</form>
+			<button type="submit" onclick="computerTurn()">Simon Says...</button>
+		</div>
+		<div class="wrapper">
+			<div class="square" onclick="playerClick(1)" id="square-one"></div>
+			<div class="square" onclick="playerClick(2)" id="square-two"></div>
+			<div class="square" onclick="playerClick(3)" id="square-three"></div>
+			<div class="square" onclick="playerClick(4)" id="square-four"></div>
+		</div>
 
 		<script src="main.js"></script>
 	</body>
