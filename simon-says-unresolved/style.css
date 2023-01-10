@@ -36,14 +36,14 @@ body {
 }
 
 #square-one {
-	background-color: darkred;
+	background-color: #580606;
 }
 #square-two {
-	background-color: darkgreen;
+	background-color: #023b02;
 }
 #square-three {
-	background-color: darkblue;
+	background-color: #09095c;
 }
 #square-four {
-	background-color: darkgoldenrod;
+	background-color: #7a601c;
 }
