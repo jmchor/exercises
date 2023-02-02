@@ -1,26 +1,29 @@
 {
-  "name": "exercises",
-  "version": "1.0.0",
-  "description": "This is a repo for all exercises done in class/doodling around with new/old concepts of coding",
-  "main": "datatypes.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jmchor/exercises.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jmchor/exercises/issues"
-  },
-  "homepage": "https://github.com/jmchor/exercises#readme",
-  "dependencies": {
-    "eslint-config-wesbos": "^3.2.3"
-  },
-  "devDependencies": {
-    "eslint": "^8.33.0"
-  }
+	"name": "exercises",
+	"version": "1.0.0",
+	"description": "This is a repo for all exercises done in class/doodling around with new/old concepts of coding",
+	"main": "datatypes.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jmchor/exercises.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jmchor/exercises/issues"
+	},
+	"homepage": "https://github.com/jmchor/exercises#readme",
+	"dependencies": {
+		"eslint-config-wesbos": "^3.2.3"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.20.7",
+		"@babel/core": "^7.20.12",
+		"@babel/preset-env": "^7.20.2",
+		"eslint": "^8.33.0"
+	}
 }
