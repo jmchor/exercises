@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 
+const port = 3000;
+
 const app = express();
 const path = require('path');
 
@@ -12,6 +14,13 @@ app.get('/', (req, res, next) => res.render('index'));
 
 app.get('/players', (req, res, next) => res.render('players'));
 
-app.get('/teams', (req, res, next) => res.render('teams'));
+// app.js
 
-app.listen(3000);
+app.get('/teams', (req, res, next) => {
+        const data = {
+                layout: false,
+        };
+        res.render('teams', data);
+});
+
+app.listen(port);
