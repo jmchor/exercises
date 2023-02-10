@@ -26,4 +26,8 @@ app.get('/search', (req, res, next) => {
         res.send(req.query);
 });
 
+app.get('/get-user-info', (req, res) => {
+        res.render('user-info-form');
+});
+
 app.listen(3000, () => console.log('App listening on port 3000!'));
