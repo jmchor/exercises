@@ -4,6 +4,17 @@ const express = require('express');
 const app = express();
 const hbs = require('hbs');
 
+const bodyParser = require('body-parser');
+// 2. let know your app you will be using it
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(myFakeMiddleware);
+function myFakeMiddleware(req, res, next) {
+        console.log('myFakeMiddleware was called!');
+        req.secretValue = 'swordfish';
+
+        next();
+}
+
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'hbs');
 
@@ -39,5 +50,26 @@ app.get('/display-user-info', (req, res) => {
     Your favorite superhero is ${superhero}
   `);
 });
+
+app.get('/login', (req, res) => res.render('login'));
+
+// app.post('/login', (req, res) => res.send('Login form submitted!'));
+app.post('/login', (req, res) => {
+        // What ES6 feature could we use to clean these two lines up?
+        const { email, password } = req.body;
+
+        if (email === 'ironhacker@gmail.com' && password === 'password') {
+                res.send('Welcome!');
+        } else {
+                res.send('Go away.');
+        }
+});
+
+app.get('/test', (req, res) => {
+        const mySecret = req.secretValue;
+        res.send(mySecret);
+});
+
+// ...
 
 app.listen(3000, () => console.log('App listening on port 3000!'));
