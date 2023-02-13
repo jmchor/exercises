@@ -8,7 +8,7 @@ const bookSchema = new Schema(
                 rating: Number,
         },
         {
-                timestamps: trze,
+                timestamps: true,
         }
 );
 
