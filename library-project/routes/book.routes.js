@@ -23,7 +23,7 @@ router.get('/books/:bookId/edit', (req, res, next) => {
         Book.findById(bookId)
                 .then((bookToEdit) => {
                         // console.log(bookToEdit);
-                        res.render('books/book-edit.hbs', { book: bookToEdit });
+                        res.render('books/books-edit.hbs', { book: bookToEdit });
                 })
                 .catch((error) => next(error));
 });
