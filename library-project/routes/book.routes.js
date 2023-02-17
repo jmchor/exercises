@@ -16,6 +16,28 @@ router.post('/books/create', (req, res, next) => {
                 .catch((error) => next(error));
 });
 
+// GET route to display the form to update a specific book
+router.get('/books/:bookId/edit', (req, res, next) => {
+        const { bookId } = req.params;
+
+        Book.findById(bookId)
+                .then((bookToEdit) => {
+                        // console.log(bookToEdit);
+                        res.render('books/book-edit.hbs', { book: bookToEdit });
+                })
+                .catch((error) => next(error));
+});
+
+// POST route to actually make updates on a specific book
+router.post('/books/:bookId/edit', (req, res, next) => {
+        const { bookId } = req.params;
+        const { title, description, author, rating } = req.body;
+
+        Book.findByIdAndUpdate(bookId, { title, description, author, rating }, { new: true })
+                .then((updatedBook) => res.redirect(`/books/${updatedBook.id}`)) // go to the details page to see the updates
+                .catch((error) => next(error));
+});
+
 // GET route to retrieve and display all the books
 router.get('/books', (req, res, next) => {
         Book.find()
