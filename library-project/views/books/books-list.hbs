@@ -12,5 +12,9 @@ we can iterate over it here with #each}}
 		{{! additional book property }}
 		<a href='/books/{{this._id}}'>See details</a>
 		{{! link that points to the details page }}
+		<a href='/books/{{this._id}}/edit'>Edit</a> {{!-- link to redirect to the edit form for each specific book  --}}
+	</div>
+{{/each}}
+
 	</div>
 {{/each}}
