@@ -38,6 +38,15 @@ router.post('/books/:bookId/edit', (req, res, next) => {
                 .catch((error) => next(error));
 });
 
+// POST route to delete a book from the database
+router.post('/books/:bookId/delete', (req, res, next) => {
+        const { bookId } = req.params;
+
+        Book.findByIdAndDelete(bookId)
+                .then(() => res.redirect('/books'))
+                .catch((error) => next(error));
+});
+
 // GET route to retrieve and display all the books
 router.get('/books', (req, res, next) => {
         Book.find()
