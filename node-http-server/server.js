@@ -7,7 +7,7 @@ const server = http.createServer((request, response) => {
                 response.write('Hello, world!');
                 response.end();
         } else if (request.url === '/about') {
-                response.write('My name is Izzy');
+                response.write('My name is ...');
                 response.end();
         } else {
                 response.statusCode = 404;
