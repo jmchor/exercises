@@ -16,7 +16,7 @@ router.post('/books/create', (req, res, next) => {
                 .catch((error) => next(error));
 });
 
-// GET route to display the form to update a specific book
+// GET route to return the form to update a specific book with book details
 router.get('/books/:bookId/edit', (req, res, next) => {
         const { bookId } = req.params;
 
