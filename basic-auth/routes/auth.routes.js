@@ -20,6 +20,7 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
                 });
                 return;
         }
+        const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         if (!regex.test(password)) {
                 res.status(500).render('auth/signup', {
                         errorMessage:
