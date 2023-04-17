@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const mongoose = require('mongoose');
 // const mongoose = require("mongoose");
 
 const Task = require('../models/Task.model');
@@ -15,6 +16,22 @@ router.post('/tasks', async (req, res, next) => {
                 const update = await Project.findByIdAndUpdate(projectId, { $push: { tasks: newTask._id } });
 
                 res.json(update);
+        } catch (error) {
+                res.json(error);
+        }
+});
+
+router.get('/tasks/:taskId', async (req, res, next) => {
+        const { taskId } = req.params;
+
+        try {
+                if (!mongoose.Types.ObjectId.isValid(taskId)) {
+                        res.status(400).json({ message: 'Specified id is not valid' });
+                        return;
+                }
+
+                const findTask = await Task.findById(taskId);
+                res.status(200).json(findTask);
         } catch (error) {
                 res.json(error);
         }
