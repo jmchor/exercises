@@ -12,7 +12,7 @@ import EditTaskPage from './pages/EditTaskPage';
 function App() {
         return (
                 <div className="App">
-                        s{/* Below: ADD <Navbar>, <Routes> & <Route> */}
+                        {/* Below: ADD <Navbar>, <Routes> & <Route> */}
                         <Navbar />
                         <Routes>
                                 <Route path="/" element={<HomePage />} />

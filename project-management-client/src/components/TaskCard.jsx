@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
-const TaskCard = ({ title, description }) => {
+const TaskCard = ({ title, description, _id }) => {
         const { taskId } = useParams();
         return (
                 <li className="TaskCard card">
@@ -8,7 +8,7 @@ const TaskCard = ({ title, description }) => {
                         <h4>Description:</h4>
                         <p>{description}</p>
 
-                        <Link to={`/tasks/edit/${taskId}`}>
+                        <Link to={`/tasks/edit/${_id}`}>
                                 <button>Edit Task</button>
                         </Link>
                 </li>

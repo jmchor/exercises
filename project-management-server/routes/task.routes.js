@@ -37,4 +37,36 @@ router.get('/tasks/:taskId', async (req, res, next) => {
         }
 });
 
+router.put('/tasks/:taskId', async (req, res, next) => {
+        const { taskId } = req.params;
+
+        try {
+                if (!mongoose.Types.ObjectId.isValid(taskId)) {
+                        res.status(400).json({ message: 'Specified id is not valid' });
+                        return;
+                }
+
+                const updateTask = await Task.findByIdAndUpdate(taskId, req.body, { new: true });
+                res.json(updateTask);
+        } catch (error) {
+                res.json(error);
+        }
+});
+
+router.delete('/tasks/:taskId', async (req, res, next) => {
+        const { taskId } = req.params;
+
+        try {
+                if (!mongoose.Types.ObjectId.isValid(taskId)) {
+                        res.status(400).json({ message: 'Specified id is not valid' });
+                        return;
+                }
+
+                await Task.findByIdAndRemove(taskId);
+                res.json({ message: `Task with ${taskId} is removed successfully.` });
+        } catch (error) {
+                res.json(error);
+        }
+});
+
 module.exports = router;

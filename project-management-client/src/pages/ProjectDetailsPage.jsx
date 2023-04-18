@@ -38,7 +38,10 @@ function ProjectDetailsPage(props) {
 
                         <AddTask refreshProject={getProject} projectId={projectId} />
 
-                        {project && project.tasks.map((task) => <TaskCard key={task._id} {...task} />)}
+                        {project &&
+                                project.tasks.map((task) => (
+                                        <TaskCard key={task._id} {...task} projectId={projectId} />
+                                ))}
 
                         <Link to="/projects">
                                 <button>Back to projects</button>
