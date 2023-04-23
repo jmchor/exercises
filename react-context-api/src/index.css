@@ -64,3 +64,36 @@ code {
 	font-size: 1rem;
 	text-align: center;
 }
+
+/*   src/index.css   */
+/*     ... previous styles stay unchanged  */
+
+.light {
+	background-color: #efeded;
+}
+
+.dark {
+	background-color: #18191a;
+}
+
+.Navbar.light {
+	background-color: #ffffff;
+}
+
+.Navbar.dark {
+	background-color: #252526;
+}
+
+.light a,
+.light p,
+.light h1,
+.light h3 {
+	color: #000000;
+}
+
+.dark a,
+.dark p,
+.dark h1,
+.dark h3 {
+	color: #ffffff;
+}
