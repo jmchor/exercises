@@ -46,7 +46,7 @@ function AuthProviderWrapper(props) {
 
         useEffect(() => {
                 //  <==  ADD
-                // to be updated in the next step
+                authenticateUser();
         }, []);
 
         return (
