@@ -14,7 +14,7 @@ function LoginPage(props) {
 
         const navigate = useNavigate();
 
-        const { storeToken } = useContext(AuthContext);
+        const { storeToken, authenticateUser } = useContext(AuthContext);
 
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
@@ -30,6 +30,7 @@ function LoginPage(props) {
 
                                 storeToken(res.data.authToken);
 
+                                authenticateUser();
                                 navigate('/');
                         })
                         .catch((err) => {
