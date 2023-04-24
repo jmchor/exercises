@@ -1,8 +1,9 @@
 // src/pages/LoginPage.js
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 
 const API_URL = 'http://localhost:5005';
 
@@ -12,6 +13,8 @@ function LoginPage(props) {
         const [errorMessage, setErrorMessage] = useState(undefined);
 
         const navigate = useNavigate();
+
+        const { storeToken } = useContext(AuthContext);
 
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
@@ -24,6 +27,8 @@ function LoginPage(props) {
                 axios.post(`${API_URL}/auth/login`, requestBody)
                         .then((res) => {
                                 console.log('JWT token', res.data.authToken);
+
+                                storeToken(res.data.authToken);
 
                                 navigate('/');
                         })
