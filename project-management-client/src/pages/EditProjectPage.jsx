@@ -25,7 +25,9 @@ function EditProjectPage(props) {
                         });
         }, [projectId]);
 
-        const handleFormSubmit = () => {
+        const handleFormSubmit = (e) => {
+                e.preventDefault();
+
                 const requestBody = { title, description };
 
                 axios.put(`${API_URL}/api/projects/${projectId}`, requestBody)
