@@ -14,7 +14,9 @@ function AddTask({ projectId, refreshProject }) {
 
                 const requestBody = { title, description, projectId };
 
-                axios.post(`${API_URL}/api/tasks`, requestBody)
+                const storedToken = localStorage.getItem('authToken');
+
+                axios.post(`${API_URL}/api/tasks`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
                         .then((res) => {
                                 const newTask = res.data;
                                 setTitle(newTask.title);
