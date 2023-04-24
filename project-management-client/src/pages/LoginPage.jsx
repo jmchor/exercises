@@ -1,31 +1,31 @@
-// src/pages/SignupPage.js
+// src/pages/LoginPage.js
 
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 const API_URL = 'http://localhost:5005';
 
-function SignupPage(props) {
+function LoginPage(props) {
         const [email, setEmail] = useState('');
         const [password, setPassword] = useState('');
-        const [name, setName] = useState('');
         const [errorMessage, setErrorMessage] = useState(undefined);
 
         const navigate = useNavigate();
 
         const handleEmail = (e) => setEmail(e.target.value);
         const handlePassword = (e) => setPassword(e.target.value);
-        const handleName = (e) => setName(e.target.value);
 
-        const handleSignupSubmit = (e) => {
+        const handleLoginSubmit = (e) => {
                 e.preventDefault();
 
-                const requestBody = { email, password, name };
+                const requestBody = { email, password };
 
-                axios.post(`${API_URL}/auth/signup`, requestBody)
+                axios.post(`${API_URL}/auth/login`, requestBody)
                         .then((res) => {
-                                navigate('/login');
+                                console.log('JWT token', res.data.authToken);
+
+                                navigate('/');
                         })
                         .catch((err) => {
                                 const errorDescription = err.response.data.message;
@@ -34,10 +34,10 @@ function SignupPage(props) {
         };
 
         return (
-                <div className="SignupPage">
-                        <h1>Sign Up</h1>
+                <div className="LoginPage">
+                        <h1>Login</h1>
 
-                        <form onSubmit={handleSignupSubmit}>
+                        <form onSubmit={handleLoginSubmit}>
                                 <label htmlFor="email">Email:</label>
                                 <input type="email" name="email" value={email} onChange={handleEmail} id="email" />
 
@@ -50,18 +50,14 @@ function SignupPage(props) {
                                         id="password"
                                 />
 
-                                <label htmlFor="name">Name:</label>
-                                <input type="text" name="name" value={name} onChange={handleName} id="name" />
-
-                                <button type="submit">Sign Up</button>
+                                <button type="submit">Login</button>
                         </form>
-
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-                        <p>Already have account?</p>
-                        <Link to="/login"> Login</Link>
+                        <p>Don't have an account yet?</p>
+                        <Link to="/signup"> Sign Up</Link>
                 </div>
         );
 }
 
-export default SignupPage;
+export default LoginPage;
